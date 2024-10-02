@@ -10,6 +10,7 @@ RouterProvider,
 } from "react-router-dom";
 import { RecoverPassword } from './RecoverPassword';
 import { Home } from './home';
+import Questionnaries from './Questionnaries.js';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home/>,
+  },
+  {
+    path: "/questionnaire",
+    element: <Questionnaries/>,
   },
 ]);
 

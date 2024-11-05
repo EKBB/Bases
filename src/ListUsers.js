@@ -1,7 +1,19 @@
 import React from 'react'
-import { Button, Card, Container, Nav, Table } from 'react-bootstrap'
+import { Button, Card, Col, Container, Nav, Row, Table } from 'react-bootstrap'
 
-export const Home = () => {
+export const ListUsers = () => {
+
+    const [user, setuser] = useState();
+        getuser()
+    useEffect(() => {
+        
+    }, []);
+
+        const users = [{
+            name: "Juan",
+            lastName: "Solano",
+            email: "Juan@edu.mx"
+        }]
 
     return (
 
@@ -32,12 +44,26 @@ export const Home = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
+                           {
+                            user.map((users, i)=>(
+                                <tr>
+                                <td>1 + i</td>
                                 <td>Juan</td>
                                 <td>Solano</td>
                                 <td>Juan@edu.mx</td>
+                                <td>
+                                    <Row className='text-center'>
+                                        <Col>
+                                          <button>Actualizar</button>
+                                        </Col>
+                                        <Col>
+                                          <button>borrar</button>
+                                        </Col>
+                                    </Row>
+                                </td>
                             </tr>
+                            ))
+                           }
                         </tbody>
                     </Table>
                 </Card.Body>

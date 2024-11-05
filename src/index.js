@@ -9,8 +9,10 @@ createBrowserRouter,
 RouterProvider,
 } from "react-router-dom";
 import { RecoverPassword } from './RecoverPassword';
-import { Home } from './home';
 import Questionnaries from './Questionnaries.js';
+import { Header } from './Components/Header.js';
+import { Dashboard } from './Dashboard.js';
+import { ListUsers } from './ListUsers.js';
 
 const router = createBrowserRouter([
   {
@@ -18,23 +20,39 @@ const router = createBrowserRouter([
     element: <App/>,
   },
   {
+    path: "/home",
+    element: <Dashboard></Dashboard>,
+  },
+  {
+    path: "/listUsers",
+    element: <ListUsers></ListUsers>,
+  },
+  {
     path: "/recover-password",
     element: <RecoverPassword/>,
   },
-  {
-    path: "/home",
-    element: <Home/>,
-  },
+ 
   {
     path: "/questionnaire",
     element: <Questionnaries/>,
   },
+
 ]);
 
-
+const user={
+  logined: true,
+  rol:1,
+  name: ""  
+}
+/* const user = JSON.stringify(localStorage.user); */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
+    <>
+      <Header></Header>
+    </>
+
    <RouterProvider router={router} />
   </React.StrictMode>
 );
